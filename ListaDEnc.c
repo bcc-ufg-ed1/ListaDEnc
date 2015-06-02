@@ -34,11 +34,11 @@ int insereNoInicio(ListaDEnc *lista, int item) {
 int insereNoFim(ListaDEnc *lista, int item) {
     if (lista == NULL)
         return ESTRUTURA_NAO_INICIALIZADA;
+    if (estahVazia(lista))
+        return insereNoInicio(lista, item);
+
     No *novoNo = criarNo(item, lista->fim, NULL);
-    if (!estahVazia(lista))
-        lista->fim->proximo = novoNo;
-    else
-        lista->inicio = novoNo;
+    lista->fim->proximo = novoNo;
     lista->fim = novoNo;
     return OK;
 }
@@ -73,12 +73,11 @@ int removeDoFim(ListaDEnc* lista, int *item) {
         return ESTRUTURA_NAO_INICIALIZADA;
     if (estahVazia(lista))
         return ESTRUTURA_VAZIA;
+    if (lista->inicio == lista->fim)
+        return removeDoInicio(lista, item);
     No* noAux = lista->fim;
     lista->fim = lista->fim->anterior;
-    if (lista->fim == NULL)
-        lista->inicio = NULL;
-    else
-        lista->fim->proximo = NULL;
+    lista->fim->proximo = NULL;
     if (item != NULL)
         *item = noAux->item;
     free(noAux);
