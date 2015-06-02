@@ -4,7 +4,7 @@
 #define OK 1
 #define ESTRUTURA_NAO_INICIALIZADA -1
 #define ESTRUTURA_VAZIA -2
-
+#define INDICE_INVALIDO -4
 typedef struct {
   int item;
   struct No* proximo;
@@ -26,3 +26,4 @@ int removeDoFim(ListaDEnc* lista, int *item);
 int liberarLista(ListaDEnc* lista);
 void imprimir(ListaDEnc* lista);
 int obterTamanho(ListaDEnc* lista, int *item);
+int inserir(ListaDEnc* lista, int item, int pos);

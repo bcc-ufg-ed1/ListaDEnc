@@ -120,4 +120,27 @@ int obterTamanho(ListaDEnc* lista,int* item){
  *item = lista->tamanho;
  return OK;
 }
+int inserir(ListaDEnc* lista, int item, int pos){
+    if (lista == NULL)
+        return ESTRUTURA_NAO_INICIALIZADA;
+    int tamanho;
+    obterTamanho(lista,&tamanho);
+    if(pos<0||pos>tamanho)
+        return INDICE_INVALIDO;
+    if(pos==0){
+        insereNoInicio(lista,item);
+        return OK;
+    }
 
+    if(pos==tamanho){
+        insereNoFim(lista,item);
+        return OK;
+    }
+    No* aux=lista->inicio;
+    for(int i=0;i<pos-1;i++){
+        aux=aux->proximo;
+    }
+    No* novoNo = criarNo(item,aux->anterior,aux->proximo);
+    aux->proximo = novoNo;
+    return OK;
+}
