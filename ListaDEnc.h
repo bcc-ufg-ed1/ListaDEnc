@@ -14,6 +14,7 @@ typedef struct {
 typedef struct {
   No* inicio;
   No* fim;
+  int tamanho;
 } ListaDEnc;
 
 ListaDEnc* criarLista();
@@ -24,3 +25,4 @@ int removeDoInicio(ListaDEnc* lista, int *item);
 int removeDoFim(ListaDEnc* lista, int *item);
 int liberarLista(ListaDEnc* lista);
 void imprimir(ListaDEnc* lista);
+int obterTamanho(ListaDEnc* lista, int *item);
