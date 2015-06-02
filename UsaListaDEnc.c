@@ -10,6 +10,7 @@ int main() {
     insereNoInicio(minhaLista, 9);
     insereNoInicio(minhaLista, 10);
     insereNoInicio(minhaLista, 11);
+    finalParaInicio(minhaLista);
     imprimir(minhaLista);
     removeDoInicio(minhaLista, NULL);
     imprimir(minhaLista);

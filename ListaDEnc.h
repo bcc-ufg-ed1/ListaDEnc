@@ -24,3 +24,4 @@ int removeDoInicio(ListaDEnc* lista, int *item);
 int removeDoFim(ListaDEnc* lista, int *item);
 int liberarLista(ListaDEnc* lista);
 void imprimir(ListaDEnc* lista);
+int finalParaInicio(ListaDEnc* lista);

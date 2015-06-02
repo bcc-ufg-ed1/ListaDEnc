@@ -108,4 +108,12 @@ void imprimir(ListaDEnc* lista) {
         printf("\n");
     }
 }
-
+int finalParaInicio(ListaDEnc* lista){
+    if(lista==NULL)
+        return ESTRUTURA_NAO_INICIALIZADA;
+    if(estahVazia(lista))
+        return ESTRUTURA_VAZIA;
+    int item;
+    removeDoFim(lista,&item);
+    insereNoInicio(lista,item);
+}
