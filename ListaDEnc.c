@@ -109,3 +109,13 @@ void imprimir(ListaDEnc* lista) {
     }
 }
 
+int incioParaFinal(ListaDEnc* lista){
+    if (lista == NULL)
+        return ESTRUTURA_NAO_INICIALIZADA;
+    if (estahVazia(lista))
+        return ESTRUTURA_VAZIA;
+    int item;
+    removeDoInicio(lista,&item);
+    insereNoFim(lista,item);
+    return OK;
+}
