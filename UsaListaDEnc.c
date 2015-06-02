@@ -15,5 +15,8 @@ int main() {
     imprimir(minhaLista);
     removeDoFim(minhaLista, NULL);
     imprimir(minhaLista);
+     int tam;
+    obterTamanho(minhaLista,&tam);
+    printf("Tamanho: %d\n",tam);
     return EXIT_SUCCESS;
 }
