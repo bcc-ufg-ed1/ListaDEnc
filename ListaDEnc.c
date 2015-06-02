@@ -8,6 +8,7 @@ ListaDEnc* criarLista() {
         return NULL;
     lista->inicio = NULL;
     lista->fim = NULL;
+    lista->tamanho=0;
     return lista;
 }
 
@@ -28,6 +29,7 @@ int insereNoInicio(ListaDEnc *lista, int item) {
     else
         lista->fim = novoNo;
     lista->inicio = novoNo;
+    lista->tamanho++;
     return OK;
 }
 
@@ -40,6 +42,7 @@ int insereNoFim(ListaDEnc *lista, int item) {
     No *novoNo = criarNo(item, lista->fim, NULL);
     lista->fim->proximo = novoNo;
     lista->fim = novoNo;
+     lista->tamanho++;
     return OK;
 }
 
@@ -65,6 +68,7 @@ int removeDoInicio(ListaDEnc* lista, int *item) {
         *item = noAux->item;
     free(noAux);
     noAux = NULL;
+     lista->tamanho--;
     return OK;
 }
 
@@ -82,6 +86,7 @@ int removeDoFim(ListaDEnc* lista, int *item) {
         *item = noAux->item;
     free(noAux);
     noAux = NULL;
+     lista->tamanho--;
     return OK;
 }
 
@@ -107,5 +112,12 @@ void imprimir(ListaDEnc* lista) {
         }
         printf("\n");
     }
+}
+
+int obterTamanho(ListaDEnc* lista,int* item){
+ if (lista == NULL)
+ return ESTRUTURA_NAO_INICIALIZADA;
+ *item = lista->tamanho;
+ return OK;
 }
 
