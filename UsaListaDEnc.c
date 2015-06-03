@@ -15,5 +15,12 @@ int main() {
     imprimir(minhaLista);
     removeDoFim(minhaLista, NULL);
     imprimir(minhaLista);
+     int tam;
+    obterTamanho(minhaLista,&tam);
+    printf("Tamanho: %d\n",tam);
+    inserir(minhaLista,52,2);
+    obterTamanho(minhaLista,&tam);
+    printf("Tamanho: %d\n",tam);
+    imprimir(minhaLista);
     return EXIT_SUCCESS;
 }
