@@ -107,5 +107,22 @@ void imprimir(ListaDEnc* lista) {
         }
         printf("\n");
     }
+
+
 }
 
+int inverteExtremidades(ListaDEnc* lista){
+    if (lista == NULL)
+        return ESTRUTURA_NAO_INICIALIZADA;
+    if (estahVazia(lista))
+        return ESTRUTURA_VAZIA;
+    int itemInicio,itemFinal;
+    if(lista->inicio->proximo!=NULL){
+        removeDoInicio(lista,&itemInicio);
+        removeDoFim(lista,&itemFinal);
+        insereNoInicio(lista,itemFinal);
+        insereNoFim(lista,itemInicio);
+    }
+
+    return OK;
+}
