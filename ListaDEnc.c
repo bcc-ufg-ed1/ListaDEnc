@@ -127,15 +127,10 @@ int inserir(ListaDEnc* lista, int item, int pos){
     obterTamanho(lista,&tamanho);
     if(pos<0||pos>tamanho)
         return INDICE_INVALIDO;
-    if(pos==0){
-        insereNoInicio(lista,item);
-        return OK;
-    }
-
-    if(pos==tamanho){
-        insereNoFim(lista,item);
-        return OK;
-    }
+    if(pos==0)
+        return insereNoInicio(lista,item);
+    if(pos==tamanho)
+        return insereNoFim(lista,item);
     No* aux=lista->inicio;
     for(int i=0;i<pos;i++){
         aux=aux->proximo;
