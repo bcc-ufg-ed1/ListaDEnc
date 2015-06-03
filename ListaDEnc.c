@@ -145,5 +145,6 @@ int inserir(ListaDEnc* lista, int item, int pos){
     aux = aux->anterior;
     aux->proximo=novoNo;
     aux2->anterior=novoNo;
+    lista->tamanho++;
     return OK;
 }
