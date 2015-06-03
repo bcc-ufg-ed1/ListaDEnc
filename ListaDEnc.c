@@ -137,10 +137,11 @@ int inserir(ListaDEnc* lista, int item, int pos){
         return OK;
     }
     No* aux=lista->inicio;
-    for(int i=0;i<pos-1;i++){
+    for(int i=0;i<pos;i++){
         aux=aux->proximo;
     }
-    No* novoNo = criarNo(item,aux->anterior,aux->proximo);
-    aux->proximo = novoNo;
+    No* novoNo = criarNo(item,aux->anterior,aux);
+    aux = aux->anterior;
+    aux->proximo=novoNo;
     return OK;
 }
