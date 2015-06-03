@@ -118,9 +118,12 @@ int inverteExtremidades(ListaDEnc* lista){
     if (estahVazia(lista))
         return ESTRUTURA_VAZIA;
     int itemInicio,itemFinal;
-    removeDoInicio(lista,&itemInicio);
-    removeDoFim(lista,&itemFinal);
-    insereNoInicio(lista,itemFinal);
-    insereNoFim(lista,itemInicio);
+    if(lista->inicio->proximo!=NULL){
+        removeDoInicio(lista,&itemInicio);
+        removeDoFim(lista,&itemFinal);
+        insereNoInicio(lista,itemFinal);
+        insereNoFim(lista,itemInicio);
+    }
+
     return OK;
 }
