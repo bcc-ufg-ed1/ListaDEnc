@@ -13,6 +13,8 @@ ListaDEnc* criarLista() {
 
 No* criarNo(int item, No* ant, No* prox) {
 	No *no = malloc(sizeof(*no));
+	if (no == NULL)
+        return NULL;
 	no->item = item;
 	no->proximo = prox;
 	no->anterior = ant;
@@ -23,6 +25,8 @@ int insereNoInicio(ListaDEnc *lista, int item) {
     if (lista == NULL)
         return ESTRUTURA_NAO_INICIALIZADA;
     No *novoNo = criarNo(item, NULL, lista->inicio);
+    if (novoNo == NULL)
+        return ESTRUTURA_NAO_INICIALIZADA;
     if (!estahVazia(lista))
         lista->inicio->anterior = novoNo;
     else
@@ -36,8 +40,9 @@ int insereNoFim(ListaDEnc *lista, int item) {
         return ESTRUTURA_NAO_INICIALIZADA;
     if (estahVazia(lista))
         return insereNoInicio(lista, item);
-
     No *novoNo = criarNo(item, lista->fim, NULL);
+    if (novoNo == NULL)
+        return ESTRUTURA_NAO_INICIALIZADA;
     lista->fim->proximo = novoNo;
     lista->fim = novoNo;
     return OK;
@@ -46,8 +51,9 @@ int insereNoFim(ListaDEnc *lista, int item) {
 int estahVazia(ListaDEnc* lista) {
     if (lista == NULL)
         return ESTRUTURA_NAO_INICIALIZADA;
-    if (lista->inicio == NULL) return TRUE;
-    else return FALSE;
+    if (lista->inicio == NULL)
+        return TRUE;
+    return FALSE;
 }
 
 int removeDoInicio(ListaDEnc* lista, int *item) {

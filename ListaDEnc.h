@@ -1,3 +1,6 @@
+#ifndef LISTA_DENC_H
+#define LISTA_DENC_H
+
 #define TRUE 1
 #define FALSE 0
 
@@ -24,3 +27,5 @@ int removeDoInicio(ListaDEnc* lista, int *item);
 int removeDoFim(ListaDEnc* lista, int *item);
 int liberarLista(ListaDEnc* lista);
 void imprimir(ListaDEnc* lista);
+
+#endif
