@@ -121,3 +121,29 @@ int obterTamanho(ListaDEnc* lista,int* item){
  return OK;
 }
 
+int remover (ListaDEnc* lista, int* item, int pos){
+    if (lista == NULL)
+        return ESTRUTURA_NAO_INICIALIZADA;
+    if (estahVazia(lista))
+        return ESTRUTURA_VAZIA;
+    int tam;
+    obterTamanho(lista,&tam);
+    if((pos<0)||(pos>(tam-1)))
+        return INDICE_INVALIDO;
+    if(pos == 0)
+        return removeDoInicio(lista,item);
+    if(pos==tam-1)
+        return removeDoFim(lista,item);
+    No* aux=lista->inicio;
+    for(int i=0; i<pos;i++)
+        aux = aux->proximo;
+    No* aux2 = aux;
+    aux = aux->anterior;
+    aux->proximo = aux2->proximo;
+    aux = aux->proximo;
+    aux->anterior = aux2->anterior;
+    free(aux2);
+    aux2 = NULL;
+    return OK;
+}
+
