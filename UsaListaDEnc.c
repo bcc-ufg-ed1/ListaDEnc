@@ -11,5 +11,12 @@ int main() {
     insereNoInicio(minhaLista, 10);
     insereNoInicio(minhaLista, 11);
     imprimir(minhaLista);
+    removeDoInicio(minhaLista, NULL);
+    imprimir(minhaLista);
+    removeDoFim(minhaLista, NULL);
+    imprimir(minhaLista);
+     int tam;
+    obterTamanho(minhaLista,&tam);
+    printf("Tamanho: %d\n",tam);
     return EXIT_SUCCESS;
 }
